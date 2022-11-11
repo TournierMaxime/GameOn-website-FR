@@ -45,7 +45,7 @@ const validate = () => {
     // Switch to give an action by type.
     switch (input.type) {
       case "text":
-        if (regexName.test(input.value) == false) {
+        if (!regexName.test(input.value)) {
           errorMessage =
             "Veuillez entrer 2 caractères ou plus pour le champ du " +
             label.textContent;
@@ -54,7 +54,7 @@ const validate = () => {
         break;
 
       case "email":
-        if (regexEmail.test(email.value) == false) {
+        if (!regexEmail.test(email.value)) {
           errorMessage = "Votre email n'est pas valide.";
           isValidate = false;
         }
@@ -122,4 +122,5 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log(e);
 });
