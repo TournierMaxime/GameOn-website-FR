@@ -51,6 +51,7 @@ const validate = () => {
             label.textContent;
           isValidate = false;
         }
+
         break;
 
       case "email":
@@ -58,6 +59,7 @@ const validate = () => {
           errorMessage = "Votre email n'est pas valide.";
           isValidate = false;
         }
+
         break;
 
       case "number":
@@ -65,6 +67,7 @@ const validate = () => {
           errorMessage = "Veuillez choisir un nombre.";
           isValidate = false;
         }
+
         break;
 
       case "radio":
@@ -81,6 +84,7 @@ const validate = () => {
           errorMessage = "Vous devez choisir une option.";
           isValidate = false;
         }
+
         break;
 
       case "checkbox":
@@ -89,8 +93,10 @@ const validate = () => {
             "Vous devez vérifier que vous acceptez les termes et conditions.";
           isValidate = false;
         }
+
         break;
     }
+
     // If message is empty
     if (input.value === "") {
       errorMessage = "Vous devez entrer votre " + label.textContent;
@@ -122,5 +128,15 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e);
+  const data = {
+    firstname: document.getElementById("first").value,
+    lastname: document.getElementById("last").value,
+    email: document.getElementById("email").value,
+    birthdate: document.getElementById("birthdate").value,
+    quantity: document.getElementById("quantity").value,
+    location: document.querySelector('input[name="location"]:checked').value,
+    cgu: document.querySelector('input[name="cgu"]:checked').value,
+  };
+
+  console.log(data);
 });
